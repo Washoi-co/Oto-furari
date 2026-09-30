@@ -20,20 +20,39 @@ const eventCard = (e, i) => `
       <img src="${esc(e.image)}" alt="${esc(`${e.date} ${e.title} ${e.sub}`)}" decoding="async">
     </div>
     ${e.coupon
-      ? `<button class="btn" type="button" data-coupon="${i}">詳細を見る</button>
-         <div class="coupon" id="coupon-${i}" hidden>
-           <p class="coupon__label">クーポンコード</p>
-           <p class="coupon__code">${esc(e.coupon)}</p>
-           <a class="btn" href="${esc(e.link)}" target="_blank" rel="noopener" data-copy="${esc(e.coupon)}">コピーして詳細へ</a>
-         </div>`
+      ? `<button class="btn" type="button" data-coupon="${i}">詳細を見る</button>`
       : `<a class="btn" href="${esc(e.link)}" target="_blank" rel="noopener">詳細を見る</a>`}
   </li>`;
 
+/* クーポン：予約シートの上にもう1枚ポップアップを重ねて見せる */
+const couponPop = document.createElement("dialog");
+couponPop.className = "sheet sheet--coupon";
+couponPop.setAttribute("aria-label", "クーポンコード");
+document.body.append(couponPop);
+couponPop.addEventListener("click", (ev) => {
+  if (ev.target === couponPop || ev.target.closest(".sheet__close")) couponPop.close();
+  const go = ev.target.closest("[data-copy]");
+  if (!go) return;
+  navigator.clipboard?.writeText(go.dataset.copy).catch(() => {}); // リンクはそのまま開く
+  const btn = couponPop.querySelector(".coupon__copy");
+  btn.textContent = "コピーしました";
+  setTimeout(() => (btn.textContent = "コピーする"), 2000);
+});
+
 document.addEventListener("click", (ev) => {
   const open = ev.target.closest("[data-coupon]");
-  if (open) { open.hidden = true; $("coupon-" + open.dataset.coupon).hidden = false; }
-  const go = ev.target.closest("[data-copy]");
-  if (go) navigator.clipboard?.writeText(go.dataset.copy).catch(() => {}); // リンクはそのまま開く
+  if (!open) return;
+  const e = EVENTS[open.dataset.coupon];
+  couponPop.innerHTML = `
+    <div class="sheet__inner">
+      <button class="sheet__close" type="button" aria-label="閉じる">Close</button>
+      <p class="coupon__label">${esc(e.date.slice(5))} ${esc(e.title)} ${esc(e.sub)}</p>
+      <p class="coupon__code">${esc(e.coupon)}</p>
+      <button class="coupon__copy" type="button" data-copy="${esc(e.coupon)}">コピーする</button>
+      <p class="coupon__note">予約ページでこのコードを入力してください</p>
+      <a class="btn" href="${esc(e.link)}" target="_blank" rel="noopener" data-copy="${esc(e.coupon)}">コピーして詳細へ</a>
+    </div>`;
+  couponPop.showModal();
 });
 
 /* 予約シート：data-reserve を押すと開く */

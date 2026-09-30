@@ -216,7 +216,13 @@ section { padding: 16vh 16px; }
 /* reserve page */
 .reserve { padding: calc(var(--bar) + 32px) 16px 12vh; }
 .reserve .title { margin-bottom: 32px; }
-.coupon { margin-top: 32px; }
-.coupon { width: 100%; padding: 24px 16px; border: .5px solid var(--line); }
-.coupon__label { font-size: 11px; color: var(--mute); }
-.coupon__code { margin: 6px 0 18px; font: 300 26px/1.4 var(--en); letter-spacing: .2em; user-select: all; }
+.sheet--coupon { width: min(100% - 48px, 420px); border-color: var(--fg); }
+.sheet--coupon .sheet__inner { padding: 56px 24px 40px; }
+.coupon__label { font-size: 11px; line-height: 1.8; color: var(--mute); }
+.coupon__code { margin: 18px 0 10px; font: 300 clamp(32px, 10vw, 44px)/1.2 var(--en); letter-spacing: .16em; user-select: all; }
+.coupon__copy {
+  margin: 4px 0 20px; padding: 10px 22px; border: .5px solid var(--line); background: #151515; color: var(--fg); cursor: pointer;
+  font: 400 12px/1 var(--ja); letter-spacing: .18em;
+}
+.coupon__copy:hover { border-color: var(--fg); }
+.coupon__note { margin-bottom: 32px; font-size: 11px; letter-spacing: .06em; color: var(--mute); }
