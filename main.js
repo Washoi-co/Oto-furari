@@ -12,6 +12,7 @@ if (EN) {
   document.querySelectorAll("[data-en]").forEach((el) => (el.innerHTML = el.dataset.en));
   document.querySelectorAll("[data-en-value]").forEach((el) => (el.value = el.dataset.enValue));
   document.querySelectorAll("[data-en-alt]").forEach((el) => (el.alt = el.dataset.enAlt));
+  document.querySelectorAll("[data-en-href]").forEach((el) => (el.href = el.dataset.enHref));
 }
 const langBtn = document.getElementById("lang-toggle");
 if (langBtn) {
@@ -92,14 +93,12 @@ if (sheet) {
 }
 
 
-/* Contact：入力内容でメールを作る（静的サイトなのでメールアプリ経由） */
-const form = $("contact-form");
-if (form) form.addEventListener("submit", (ev) => {
-  ev.preventDefault();
-  const f = Object.fromEntries(new FormData(form));
-  const body = `${f.body}\n\n----\n${t("お名前", "Name")}：${f.name}\n${t("メール", "Email")}：${f.email}`;
-  location.href = `mailto:otofurari@apush.jp?subject=${encodeURIComponent(f.subject)}&body=${encodeURIComponent(body)}`;
-});
+/* 1ページ目の右下：今日以降で一番近いイベント。無ければ消す */
+if ($("hero-next")) {
+  const next = [...upcoming].sort((a, b) => a.date.localeCompare(b.date))[0];
+  if (next) $("hero-next").textContent = `Next ${next.date.slice(5)} ${next.day}${next.venueShort ? ` @ ${next.venueShort}` : ""}`;
+  else $("hero-next").remove();
+}
 
 /* Works */
 if ($("works-list")) $("works-list").innerHTML = [...WORKS]

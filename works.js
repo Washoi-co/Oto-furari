@@ -5,6 +5,7 @@
 /* 会場（何度も使うのでまとめておく） */
 const COEN = {
   venue: "coen Cafe&Bar 月日",
+  venueShort: "coen", // 1ページ目の「Next …」に出す短い名前
   venueLink: "https://party-co.jp/coen/en-joy",
   venueLogo: "assets/venues/coen.png",
   area: "下北沢", area_en: "Shimokitazawa",
@@ -15,6 +16,7 @@ const COEN = {
   no        : 回数（数字）
   date      : "2026.10.24" の形。未定なら ""（今日以降の日付は Upcoming と予約ボタンが付きます）
   venue     : 会場名
+  venueShort: 会場の短い名前（1ページ目の「Next 10.24 Sat @ coen」に使う）
   venueLink : 会場のURL（任意）
   venueLogo : 会場ロゴ（白抜きPNG）。任意。ロゴの下に会場名も出ます
   area      : エリア

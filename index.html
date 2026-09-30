@@ -31,6 +31,7 @@
 <main>
   <section id="home" class="hero">
     <h1 class="hero__logo"><span class="mark hero__mark" aria-hidden="true"></span><span class="hero__name">Oto Furari</span></h1>
+    <p class="hero__meta"><span>Live music nights in Tokyo</span><a class="hero__next" id="hero-next" href="reserve.html" data-reserve></a></p>
   </section>
 
   <section class="concept" aria-label="コンセプト">
@@ -54,8 +55,7 @@
         <div class="enjoy__body">
         <h3 class="enjoy__title-en">Musicians</h3>
         <figure class="film">
-            <video src="assets/otofurari-live.mp4" poster="assets/video-poster.jpg" controls playsinline preload="none"></video>
-            <figcaption>The Way You Make Me Feel<span>Michael Jackson cover by Oto Furari Band</span></figcaption>
+            <video aria-label="The Way You Make Me Feel — Michael Jackson cover by Oto Furari Band" src="assets/otofurari-live.mp4" poster="assets/video-poster.jpg" controls playsinline preload="none"></video>
         </figure>
         <p data-en="Fewer people go to live music venues these days.<br>Yet Japan is full of brilliant musicians.<br>We bring live music to cafés and bars,<br>and create more stages for them to shine.<br>That is Project Oto Furari.">ライブハウスに行く人は、減っている。<br>でも日本には、凄腕のミュージシャンが多い。<br>カフェやバーに、生演奏を。<br>彼らが輝く場所を増やす。<br>それが Project Oto Furari。</p>
         <a class="enjoy__link" href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener" data-en="Watch on Instagram">Instagram で見る</a>
@@ -94,14 +94,7 @@
   <section id="contact" class="contact" aria-labelledby="contact-title">
     <h2 id="contact-title" class="title">Contact</h2>
     <p class="contact__lead" data-en="For performance, vendor or press inquiries,<br>feel free to get in touch.">出演・出展・取材のご相談は、<br>お気軽にご連絡ください。</p>
-    <form class="form" id="contact-form">
-      <label><span data-en="Name">お名前</span><input name="name" autocomplete="name" required></label>
-      <label><span data-en="Email">メールアドレス</span><input name="email" type="email" autocomplete="email" required></label>
-      <label><span data-en="Subject">件名</span><input name="subject" value="音ふらりへのお問い合わせ" data-en-value="Inquiry to Oto Furari" required></label>
-      <label><span data-en="Message">本文</span><textarea name="body" rows="6" required></textarea></label>
-      <button class="btn" type="submit" data-en="Create email">メールを作成する</button>
-      <p class="form__note" data-en="Pressing the button opens your mail app<br>with your message filled in.">送信ボタンを押すと、入力内容を入れた<br>メールアプリが開きます。</p>
-    </form>
+    <a class="contact__mail" href="mailto:otofurari@apush.jp?subject=%E9%9F%B3%E3%81%B5%E3%82%89%E3%82%8A%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" data-en-href="mailto:otofurari@apush.jp?subject=Inquiry%20to%20Oto%20Furari">otofurari@apush.jp</a>
     <a class="contact__ig" href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener">@otofurari_music_tokyo</a>
 
   </section>
