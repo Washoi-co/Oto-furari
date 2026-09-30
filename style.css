@@ -76,7 +76,8 @@ section { padding: 16vh 16px; }
 /* about：三つの楽しみ */
 .enjoy { display: grid; gap: 14vh; max-width: 980px; margin: 4vh auto 12vh; }
 .enjoy__item img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 32px; }
-.enjoy__item img.is-square { aspect-ratio: 1; }
+.enjoy__item .enjoy__title-en { font: 300 clamp(22px, 5.6vw, 30px)/1.4 var(--en); letter-spacing: .12em; margin-top: 0; }
+.enjoy__item--lead { padding: 4vh 0; }
 .enjoy__en { font: 300 11px/1 var(--en); letter-spacing: .28em; color: var(--mute); }
 .enjoy__item h3 { margin: 14px 0 16px; font-weight: 300; font-size: 19px; letter-spacing: .3em; }
 .enjoy__item p:not(.enjoy__en) { font-size: 13px; line-height: 2.3; letter-spacing: .08em; color: var(--mute); }
@@ -84,9 +85,8 @@ section { padding: 16vh 16px; }
 .enjoy__link:hover { border-color: var(--fg); }
 @media (min-width: 900px) {
   .enjoy { grid-template-columns: 1fr 1fr; column-gap: 5vw; row-gap: 12vh; align-items: start; }
-  /* ミュージシャンは全幅で 左：写真 / 右：文章。その下に2つ並ぶ */
-  .enjoy__item--lead { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 5vw; align-items: center; }
-  .enjoy__item--lead img { margin-bottom: 0; }
+  /* ミュージシャン（文章のみ）は全幅、その下に2つ並ぶ */
+  .enjoy__item--lead { grid-column: 1 / -1; }
 }
 
 /* works */
