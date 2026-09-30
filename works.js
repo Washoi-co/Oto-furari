@@ -37,7 +37,7 @@ const WORKS = [
     text_en: "Discover NOUEI’s rare vegetables\nthrough Oto Furari.",
   },
   {
-    no: 1, date: "2026.06.13", venue: "", venueLogo: "", area: "浅草", area_en: "Asakusa", lineup: ["Oto Furari Band"], photo: "assets/works/dobopro-logo.jpg",
+    no: 1, date: "2026.06.13", venue: "", venueLogo: "", lineup: [], photo: "assets/works/dobopro-logo.jpg",
     title: "土木実践学生集団 ドボプロ", title_en: "Dobopro, a civil engineering student group", link: "https://dobo-pro.studio.site/",
     text: "海外渡航前の研修と交流の場を、\n音楽で盛り上げました。",
     text_en: "We brought live music to their training\nand exchange before going abroad.",

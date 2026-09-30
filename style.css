@@ -90,8 +90,10 @@ section { padding: 9vh 16px; }
 .concept { padding-top: 10vh; padding-bottom: 20vh; } /* Concept の後は「間」を残す */
 .concept__body + .concept__body { margin-top: 5vh; }
 .concept__body { font-size: 15px; line-height: 2.4; letter-spacing: .12em; }
-.concept__sign { margin-top: 7vh; font-size: 17px; letter-spacing: .5em; margin-right: -.5em; }
-.concept__sign span { display: block; margin-top: 10px; font: 300 13px/1 var(--en); letter-spacing: .3em; color: var(--mute); }
+.concept__body--strong { font-weight: 700; color: #fff; }
+.concept__sign { margin-top: 8vh; font-size: clamp(26px, 7vw, 40px); font-weight: 700; line-height: 1.4; letter-spacing: .3em; margin-right: -.3em; color: #fff; }
+.concept__sign span { display: block; margin-top: 14px; font: 500 clamp(18px, 4.6vw, 26px)/1 var(--en); letter-spacing: .2em; color: #fff; }
+strong { font-weight: 700; color: #fff; }
 
 /* about：三つの楽しみ */
 .enjoy { display: grid; gap: 8vh; max-width: 980px; margin: 0 auto 7vh; }
@@ -254,4 +256,4 @@ section { padding: 9vh 16px; }
 /* 英語表示：日本語用の広い字間だと折り返しが崩れるので詰める */
 html[lang="en"] :is(.concept__body, .apush__lead, .apush__title, .coupon__note) { letter-spacing: .03em; }
 html[lang="en"] :is(.title, .enjoy__item h3, .sheet__title) { letter-spacing: .08em; }
-html[lang="en"] .concept__sign { letter-spacing: .2em; margin-right: -.2em; }
+html[lang="en"] .concept__sign { letter-spacing: .08em; margin-right: 0; }
