@@ -83,8 +83,10 @@ section { padding: 16vh 16px; }
 .enjoy__link { display: inline-block; margin-top: 22px; font-size: 12px; letter-spacing: .16em; border-bottom: .5px solid var(--line); padding-bottom: 6px; }
 .enjoy__link:hover { border-color: var(--fg); }
 @media (min-width: 900px) {
-  /* 4つを 2×2 で（高さをそろえる） */
   .enjoy { grid-template-columns: 1fr 1fr; column-gap: 5vw; row-gap: 12vh; align-items: start; }
+  /* ミュージシャンは全幅で 左：写真 / 右：文章。その下に2つ並ぶ */
+  .enjoy__item--lead { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 5vw; align-items: center; }
+  .enjoy__item--lead img { margin-bottom: 0; }
 }
 
 /* works */
