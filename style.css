@@ -117,7 +117,7 @@ section { padding: 16vh 16px; }
 }
 
 /* videos */
-.film { max-width: 960px; margin: 0 auto; }
+.film { max-width: 960px; margin: 5vh auto 6vh; }
 .film video { display: block; width: 100%; aspect-ratio: 1280 / 690; background: #121212; }
 .film figcaption { margin-top: 28px; font: 300 15px/1.6 var(--en); letter-spacing: .12em; }
 .film figcaption span { display: block; margin-top: 6px; font-size: 11px; letter-spacing: .2em; color: var(--mute); }
