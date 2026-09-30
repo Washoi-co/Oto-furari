@@ -1,0 +1,119 @@
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const br = (s) => esc(s).replace(/\n/g, "<br>");
+const $ = (id) => document.getElementById(id);
+const venueHTML = (o) => o.venueLink ? `<a href="${esc(o.venueLink)}" target="_blank" rel="noopener">${esc(o.venue)}</a>` : esc(o.venue);
+const addressHTML = (o) => o.address ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(o.address)}" target="_blank" rel="noopener">${esc(o.address)}</a>` : "";
+const today = () => { const d = new Date(); return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`; };
+const upcoming = EVENTS.filter((e) => e.date >= today());
+
+/* 上部バナーの日付（終わった回は自動で消える） */
+if ($("bar-dates")) {
+  if (upcoming.length) $("bar-dates").textContent = "Next " + upcoming.map((e) => `${e.date.slice(5)} ${e.day}`).join(" / ");
+  else document.querySelector(".bar__notice").remove();
+}
+
+
+/* イベント1件＝フライヤー＋詳細を見る。予約シートと予約ページで共通 */
+const eventCard = (e, i) => `
+  <li class="ev" id="event-${i}">
+    <div class="ev__img${e.imageBg ? " is-logo" : ""}"${e.imageBg ? ` style="background:${esc(e.imageBg)}"` : ""}>
+      <img src="${esc(e.image)}" alt="${esc(`${e.date} ${e.title} ${e.sub}`)}" decoding="async">
+    </div>
+    ${e.coupon
+      ? `<button class="btn" type="button" data-coupon="${i}">詳細を見る</button>
+         <div class="coupon" id="coupon-${i}" hidden>
+           <p class="coupon__label">クーポンコード</p>
+           <p class="coupon__code">${esc(e.coupon)}</p>
+           <a class="btn" href="${esc(e.link)}" target="_blank" rel="noopener" data-copy="${esc(e.coupon)}">コピーして詳細へ</a>
+         </div>`
+      : `<a class="btn" href="${esc(e.link)}" target="_blank" rel="noopener">詳細を見る</a>`}
+  </li>`;
+
+document.addEventListener("click", (ev) => {
+  const open = ev.target.closest("[data-coupon]");
+  if (open) { open.hidden = true; $("coupon-" + open.dataset.coupon).hidden = false; }
+  const go = ev.target.closest("[data-copy]");
+  if (go) navigator.clipboard?.writeText(go.dataset.copy).catch(() => {}); // リンクはそのまま開く
+});
+
+/* 予約シート：data-reserve を押すと開く */
+const sheet = $("reserve-sheet");
+if (sheet) {
+  $("sheet-list").innerHTML = upcoming.map((e) => eventCard(e, EVENTS.indexOf(e))).join("");
+  document.addEventListener("click", (ev) => {
+    if (ev.target.closest("[data-reserve]") && sheet.showModal) { ev.preventDefault(); sheet.showModal(); }
+  });
+  sheet.querySelector(".sheet__close").addEventListener("click", () => sheet.close());
+  sheet.addEventListener("click", (ev) => { if (ev.target === sheet) sheet.close(); }); // 外側タップで閉じる
+}
+
+
+/* Contact：入力内容でメールを作る（静的サイトなのでメールアプリ経由） */
+const form = $("contact-form");
+if (form) form.addEventListener("submit", (ev) => {
+  ev.preventDefault();
+  const f = Object.fromEntries(new FormData(form));
+  const body = `${f.body}\n\n----\nお名前：${f.name}\nメール：${f.email}`;
+  location.href = `mailto:otofurari@apush.jp?subject=${encodeURIComponent(f.subject)}&body=${encodeURIComponent(body)}`;
+});
+
+/* Works */
+if ($("works-list")) $("works-list").innerHTML = [...WORKS]
+  .sort((a, b) => a.no - b.no)
+  .map((w) => ({ ...w, upcoming: w.date && w.date >= today() }))
+  .map((w) => `
+    <li class="work">
+      <div class="work__photo${w.photoFit === "contain" ? " is-contain" : ""}">${
+        w.photo
+          ? `<img src="${esc(w.photo)}" alt="音ふらり Vol.${w.no}" loading="lazy" decoding="async">`
+          : `<span class="mark" aria-hidden="true"></span>`
+      }</div>
+      <p class="work__head"><span>Vol.${String(w.no).padStart(2, "0")}</span>${w.date ? `<span>${esc(w.date)}</span>` : ""}${w.upcoming ? `<span>Upcoming</span>` : ""}</p>
+      ${w.title ? `<p class="work__title">${w.link ? `<a href="${esc(w.link)}" target="_blank" rel="noopener">${esc(w.title)}</a>` : esc(w.title)}</p>` : ""}
+      ${w.venueLogo ? `<p class="work__logo"><img src="${esc(w.venueLogo)}" alt="" loading="lazy"></p>` : ""}
+      ${w.venue ? `<p class="work__venue">${venueHTML(w)}</p>` : ""}
+      ${w.area ? `<p class="work__area">${esc(w.area)}</p>` : ""}
+      ${w.text ? `<p class="work__text">${br(w.text)}</p>` : ""}
+      ${w.lineup.length ? `<p class="work__lineup">${w.lineup.map(esc).join("<br>")}</p>` : ""}
+      ${w.upcoming ? `<a class="btn work__reserve" href="reserve.html" data-reserve>予約する</a>` : ""}
+    </li>`)
+  .join("");
+
+/* Venue */
+if ($("venue-name")) {
+  $("venue-name").innerHTML = venueHTML(COEN);
+  $("venue-address").innerHTML = addressHTML(COEN);
+}
+
+/* YouTube: クリックするまで iframe を読み込まない。未設定なら出さない */
+const yt = $("yt");
+if (yt && MEDIA.youtubeId) {
+  const id = encodeURIComponent(MEDIA.youtubeId);
+  yt.innerHTML = `<button class="yt__btn" type="button" aria-label="動画を再生" style="background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)"></button>`;
+  yt.firstChild.addEventListener("click", () => {
+    yt.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="Oto Furari" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+  });
+} else if (yt) yt.remove();
+
+/* Instagram: セクションが近づいたら公式埋め込みを読み込む */
+const ig = $("ig");
+if (ig && MEDIA.instagramPosts.length) {
+  ig.innerHTML = MEDIA.instagramPosts
+    .map((u) => `<blockquote class="instagram-media" data-instgrm-permalink="${esc(u)}" data-instgrm-version="14"><a href="${esc(u)}">Instagram</a></blockquote>`)
+    .join("");
+  new IntersectionObserver((entries, o) => {
+    if (!entries[0].isIntersecting) return;
+    o.disconnect();
+    const s = document.createElement("script");
+    s.src = "https://www.instagram.com/embed.js";
+    s.async = true;
+    document.body.append(s);
+  }, { rootMargin: "600px" }).observe(ig);
+}
+
+
+/* Reserve ページ */
+if ($("events")) {
+  $("events").innerHTML = upcoming.map((e) => eventCard(e, EVENTS.indexOf(e))).join("");
+  if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+}

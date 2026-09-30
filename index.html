@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>音ふらり Oto Furari | 文化の熱</title>
+<meta name="description" content="音ふらり（Oto Furari）は、生演奏の熱で文化を楽しむ時間をつくる音楽イベントです。">
+<meta name="theme-color" content="#0B0B0B">
+<!-- 公開URLが決まったら og:url と og:image を合わせる -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="音ふらり Oto Furari">
+<meta property="og:description" content="不要不急かもしれない。それでも、文化を楽しむ夜があってもいいじゃないか。">
+<meta property="og:url" content="https://otofurari.apush.jp/">
+<meta property="og:image" content="https://otofurari.apush.jp/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+  <nav class="nav" aria-label="メイン">
+    <a href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener">Instagram</a><a href="#contact">Contact</a><a class="nav__reserve" href="reserve.html" data-reserve>予約する</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <h1 class="hero__logo"><span class="mark hero__mark" aria-hidden="true"></span><span class="hero__name">Oto Furari</span></h1>
+  </section>
+
+  <section class="concept" aria-label="コンセプト">
+    <p class="concept__body">
+      不要不急かもしれない。<br>
+      それでも、文化を楽しむ夜が<br>
+      あってもいいじゃないか。
+    </p>
+    <p class="concept__body">
+      生演奏の熱が、人に活気を灯し、<br>
+      まだ名前のない“ワクワク”を生んでいく。
+    </p>
+    <p class="concept__sign">文化の熱<span>Oto Furari</span></p>
+  </section>
+
+  <section id="about" class="about" aria-labelledby="about-title">
+    <h2 id="about-title" class="title">音ふらりとは</h2>
+
+    <div class="enjoy">
+      <article class="enjoy__item">
+        <img class="is-square" src="assets/photos/musicians.jpg" alt="ボーカル、ドラム、ベースの演奏" loading="lazy" decoding="async" width="1200" height="1200">
+        <p class="enjoy__en">Musicians</p>
+        <h3>ミュージシャン</h3>
+        <p>ライブハウスに行く人は、減っている。<br>でも日本には、凄腕のミュージシャンが多い。<br>カフェやバーに、生演奏を。<br>彼らが輝く場所を増やす。<br>それが Project Oto Furari。</p>
+        <a class="enjoy__link" href="https://www.youtube.com/playlist?list=PLVgK-hDBgXZE" target="_blank" rel="noopener">音ふらり PlayList を見る</a>
+      </article>
+      <article class="enjoy__item">
+        <img src="assets/photos/clothes.jpg" alt="ライトの下に並ぶ服" loading="lazy" decoding="async" width="1080" height="706">
+        <p class="enjoy__en">Culture</p>
+        <h3>文化</h3>
+        <p>生演奏、絵、服。<br>耳と目と肌で、その夜だけの表現を味わう。</p>
+      </article>
+      <article class="enjoy__item">
+        <img src="assets/photos/glass-candle.jpg" alt="キャンドルの灯りとワイングラス" loading="lazy" decoding="async" width="1108" height="1477">
+        <p class="enjoy__en">Food &amp; Drink</p>
+        <h3>食と酒</h3>
+        <p>おいしい一皿と、一杯のお酒。<br>音に身をまかせる、ゆるやかな時間。</p>
+      </article>
+      <article class="enjoy__item">
+        <img src="assets/photos/talk.jpg" alt="楽器を手に話すミュージシャン" loading="lazy" decoding="async" width="1567" height="1045">
+        <p class="enjoy__en">Communication</p>
+        <h3>コミュニケーション</h3>
+        <p>バックグラウンドを越えて。<br>楽しい音楽があれば、<br>いつもより自然に言葉が交わせる。</p>
+      </article>
+    </div>
+    <a class="btn" href="reserve.html" data-reserve>予約する</a>
+  </section>
+
+  <section id="works" class="works" aria-labelledby="works-title">
+    <h2 id="works-title" class="title">Works</h2>
+    <ol class="works__list" id="works-list"></ol>
+  </section>
+
+  <section id="videos" class="videos" aria-labelledby="videos-title">
+    <h2 id="videos-title" class="title">Videos</h2>
+    <figure class="film">
+      <video src="assets/otofurari-live.mp4" poster="assets/video-poster.jpg" controls playsinline preload="none"></video>
+      <figcaption>The Way You Make Me Feel<span>Michael Jackson cover by Oto Furari Band</span></figcaption>
+    </figure>
+    <div class="yt" id="yt"></div>
+    <div class="ig" id="ig"></div>
+    <a class="btn" href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener">Follow on Instagram</a>
+  </section>
+
+  <section id="venue" class="venue" aria-labelledby="venue-title">
+    <h2 id="venue-title" class="title">Venue</h2>
+    <img class="venue__logo" src="assets/venues/coen-red.png" alt="coen" width="600" height="110" loading="lazy">
+    <p class="venue__name" id="venue-name"></p>
+    <p class="venue__text">下北沢・代田のカフェ＆バー。<br>10.24 と 11.14、音ふらりはここで開きます。</p>
+    <p class="venue__address" id="venue-address"></p>
+    <a class="btn" href="reserve.html" data-reserve>予約する</a>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title" class="title">Contact</h2>
+    <p class="contact__lead">出演・出展・取材のご相談は、<br>お気軽にご連絡ください。</p>
+    <form class="form" id="contact-form">
+      <label>お名前<input name="name" autocomplete="name" required></label>
+      <label>メールアドレス<input name="email" type="email" autocomplete="email" required></label>
+      <label>件名<input name="subject" value="音ふらりへのお問い合わせ" required></label>
+      <label>本文<textarea name="body" rows="6" required></textarea></label>
+      <button class="btn" type="submit">メールを作成する</button>
+      <p class="form__note">送信ボタンを押すと、入力内容を入れた<br>メールアプリが開きます。</p>
+    </form>
+    <a class="contact__ig" href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener">@otofurari_music_tokyo</a>
+
+  </section>
+
+  <section class="apush" aria-labelledby="apush-title">
+    <div class="apush__text">
+      <p class="apush__lead">音を越えて、言葉でも繋がりたくなったら。</p>
+      <h2 id="apush-title" class="apush__title">Oto Furari の運営会社は、<br>英語教育に本気です。</h2>
+      <img class="apush__logo" src="assets/apush/apush-logo.png" alt="A-Push" width="862" height="186" loading="lazy">
+      <p class="apush__body">スピーキング特化型英会話 A-PUSH。<br>ネイティブ講師とマンツーマンで、とにかく話す。<br>目黒の教室とオンラインで、朝や仕事終わりにも。</p>
+      <a class="btn" href="https://lp.apush.jp/" target="_blank" rel="noopener">A-PUSH を見る</a>
+    </div>
+    <ul class="apush__teachers">
+      <li><img src="assets/apush/face-alex.jpg" alt="アレックス先生" width="480" height="480" loading="lazy" decoding="async"><span>Alex</span></li>
+      <li><img src="assets/apush/face-phoebe.jpg" alt="フィビィ先生" width="480" height="480" loading="lazy" decoding="async"><span>Phoebe</span></li>
+    </ul>
+  </section>
+
+  <div class="end"><span class="mark mark--end" role="img" aria-label="Oto Furari"></span></div>
+</main>
+
+<footer class="footer">
+  <p>© Oto Furari</p>
+  <p>運営：<a href="https://lp.apush.jp/company.html" target="_blank" rel="noopener">A-PUSH株式会社</a></p>
+  <p class="footer__links"><a href="https://lp.apush.jp/company.html" target="_blank" rel="noopener">会社概要</a><a href="https://lp.apush.jp/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+</footer>
+
+<dialog class="sheet" id="reserve-sheet" aria-labelledby="sheet-title">
+  <div class="sheet__inner">
+    <button class="sheet__close" type="button" aria-label="閉じる">Close</button>
+    <p class="sheet__title" id="sheet-title">予約する</p>
+    <ol class="evs" id="sheet-list"></ol>
+  </div>
+</dialog>
+
+<script src="works.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
