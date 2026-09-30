@@ -24,7 +24,7 @@
 
 <header class="bar">
   <nav class="nav" aria-label="メイン">
-    <a href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener">Instagram</a><a href="#contact">Contact</a><a class="nav__reserve" href="reserve.html" data-reserve>予約する</a>
+    <a href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener">Instagram</a><a href="#contact">Contact</a><button class="nav__lang" type="button" id="lang-toggle" aria-label="Language">EN</button><a class="nav__reserve" href="reserve.html" data-reserve data-en="Reserve">予約する</a>
   </nav>
 </header>
 
@@ -34,20 +34,20 @@
   </section>
 
   <section class="concept" aria-label="コンセプト">
-    <p class="concept__body">
+    <p class="concept__body" data-en="Maybe it isn’t essential.<br>But shouldn’t there be nights<br>just for enjoying culture?">
       不要不急かもしれない。<br>
       それでも、文化を楽しむ夜が<br>
       あってもいいじゃないか。
     </p>
-    <p class="concept__body">
+    <p class="concept__body" data-en="The heat of live music lights people up,<br>and sparks an excitement that has no name yet.">
       生演奏の熱が、人に活気を灯し、<br>
       まだ名前のない“ワクワク”を生んでいく。
     </p>
-    <p class="concept__sign">文化の熱<span>Oto Furari</span></p>
+    <p class="concept__sign" data-en="The Heat of Culture<span>Oto Furari</span>">文化の熱<span>Oto Furari</span></p>
   </section>
 
   <section id="about" class="about" aria-labelledby="about-title">
-    <h2 id="about-title" class="title">音ふらりとは</h2>
+    <h2 id="about-title" class="title" data-en="About">音ふらりとは</h2>
 
     <div class="enjoy">
       <article class="enjoy__item enjoy__item--lead">
@@ -57,24 +57,24 @@
             <video src="assets/otofurari-live.mp4" poster="assets/video-poster.jpg" controls playsinline preload="none"></video>
             <figcaption>The Way You Make Me Feel<span>Michael Jackson cover by Oto Furari Band</span></figcaption>
         </figure>
-        <p>ライブハウスに行く人は、減っている。<br>でも日本には、凄腕のミュージシャンが多い。<br>カフェやバーに、生演奏を。<br>彼らが輝く場所を増やす。<br>それが Project Oto Furari。</p>
-        <a class="enjoy__link" href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener">Instagram で見る</a>
+        <p data-en="Fewer people go to live music venues these days.<br>Yet Japan is full of brilliant musicians.<br>We bring live music to cafés and bars,<br>and create more stages for them to shine.<br>That is Project Oto Furari.">ライブハウスに行く人は、減っている。<br>でも日本には、凄腕のミュージシャンが多い。<br>カフェやバーに、生演奏を。<br>彼らが輝く場所を増やす。<br>それが Project Oto Furari。</p>
+        <a class="enjoy__link" href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener" data-en="Watch on Instagram">Instagram で見る</a>
         </div>
       </article>
       <article class="enjoy__item">
-        <img src="assets/photos/glass-candle.jpg" alt="キャンドルの灯りとワイングラス" loading="lazy" decoding="async" width="1108" height="1477">
-        <p class="enjoy__en">Food &amp; Drink</p>
-        <h3>食と酒</h3>
-        <p>おいしい一皿と、一杯のお酒。<br>音に身をまかせる、ゆるやかな時間。</p>
+        <img src="assets/photos/glass-candle.jpg" alt="キャンドルの灯りとワイングラス" data-en-alt="A candle and a glass of wine" loading="lazy" decoding="async" width="1108" height="1477">
+        <p class="enjoy__en" data-en="">Food &amp; Drink</p>
+        <h3 data-en="Food &amp; Drink">食と酒</h3>
+        <p data-en="A good plate and a glass of something.<br>Easy hours, carried by the music.">おいしい一皿と、一杯のお酒。<br>音に身をまかせる、ゆるやかな時間。</p>
       </article>
       <article class="enjoy__item">
-        <img src="assets/photos/talk.jpg" alt="楽器を手に話すミュージシャン" loading="lazy" decoding="async" width="1567" height="1045">
-        <p class="enjoy__en">Communication</p>
-        <h3>コミュニケーション</h3>
-        <p>バックグラウンドを越えて。<br>楽しい音楽があれば、<br>いつもより自然に言葉が交わせる。</p>
+        <img src="assets/photos/talk.jpg" alt="楽器を手に話すミュージシャン" data-en-alt="Musicians talking with their instruments" loading="lazy" decoding="async" width="1567" height="1045">
+        <p class="enjoy__en" data-en="">Communication</p>
+        <h3 data-en="Communication">コミュニケーション</h3>
+        <p data-en="Beyond backgrounds.<br>With good music around,<br>conversation comes naturally.">バックグラウンドを越えて。<br>楽しい音楽があれば、<br>いつもより自然に言葉が交わせる。</p>
       </article>
     </div>
-    <a class="btn" href="reserve.html" data-reserve>予約する</a>
+    <a class="btn" href="reserve.html" data-reserve data-en="Reserve">予約する</a>
   </section>
 
   <section id="works" class="works" aria-labelledby="works-title">
@@ -86,21 +86,21 @@
     <h2 id="venue-title" class="title">Venue</h2>
     <img class="venue__logo" src="assets/venues/coen-red.png" alt="coen" width="600" height="110" loading="lazy">
     <p class="venue__name" id="venue-name"></p>
-    <p class="venue__text">下北沢・代田のカフェ＆バー。<br>10.24 と 11.14、音ふらりはここで開きます。</p>
+    <p class="venue__text" data-en="A café &amp; bar in Daita, Shimokitazawa.<br>Oto Furari takes place here on 10.24 and 11.14.">下北沢・代田のカフェ＆バー。<br>10.24 と 11.14、音ふらりはここで開きます。</p>
     <p class="venue__address" id="venue-address"></p>
-    <a class="btn" href="reserve.html" data-reserve>予約する</a>
+    <a class="btn" href="reserve.html" data-reserve data-en="Reserve">予約する</a>
   </section>
 
   <section id="contact" class="contact" aria-labelledby="contact-title">
     <h2 id="contact-title" class="title">Contact</h2>
-    <p class="contact__lead">出演・出展・取材のご相談は、<br>お気軽にご連絡ください。</p>
+    <p class="contact__lead" data-en="For performance, vendor or press inquiries,<br>feel free to get in touch.">出演・出展・取材のご相談は、<br>お気軽にご連絡ください。</p>
     <form class="form" id="contact-form">
-      <label>お名前<input name="name" autocomplete="name" required></label>
-      <label>メールアドレス<input name="email" type="email" autocomplete="email" required></label>
-      <label>件名<input name="subject" value="音ふらりへのお問い合わせ" required></label>
-      <label>本文<textarea name="body" rows="6" required></textarea></label>
-      <button class="btn" type="submit">メールを作成する</button>
-      <p class="form__note">送信ボタンを押すと、入力内容を入れた<br>メールアプリが開きます。</p>
+      <label><span data-en="Name">お名前</span><input name="name" autocomplete="name" required></label>
+      <label><span data-en="Email">メールアドレス</span><input name="email" type="email" autocomplete="email" required></label>
+      <label><span data-en="Subject">件名</span><input name="subject" value="音ふらりへのお問い合わせ" data-en-value="Inquiry to Oto Furari" required></label>
+      <label><span data-en="Message">本文</span><textarea name="body" rows="6" required></textarea></label>
+      <button class="btn" type="submit" data-en="Create email">メールを作成する</button>
+      <p class="form__note" data-en="Pressing the button opens your mail app<br>with your message filled in.">送信ボタンを押すと、入力内容を入れた<br>メールアプリが開きます。</p>
     </form>
     <a class="contact__ig" href="https://www.instagram.com/otofurari_music_tokyo/" target="_blank" rel="noopener">@otofurari_music_tokyo</a>
 
@@ -108,15 +108,15 @@
 
   <section class="apush" aria-labelledby="apush-title">
     <div class="apush__text">
-      <p class="apush__lead">音を越えて、言葉でも繋がりたくなったら。</p>
-      <h2 id="apush-title" class="apush__title">Oto Furari の運営会社は、<br>英語教育に本気です。</h2>
+      <p class="apush__lead" data-en="When you want to connect through words, too.">音を越えて、言葉でも繋がりたくなったら。</p>
+      <h2 id="apush-title" class="apush__title" data-en="The team behind Oto Furari<br>is serious about English education.">Oto Furari の運営会社は、<br>英語教育に本気です。</h2>
       <img class="apush__logo" src="assets/apush/apush-logo.png" alt="A-Push" width="862" height="186" loading="lazy">
-      <p class="apush__body">スピーキング特化型英会話 A-PUSH。<br>ネイティブ講師とマンツーマンで、とにかく話す。<br>目黒の教室とオンラインで、朝や仕事終わりにも。</p>
-      <a class="btn" href="https://lp.apush.jp/" target="_blank" rel="noopener">A-PUSH を見る</a>
+      <p class="apush__body" data-en="A-PUSH, a speaking-focused English school.<br>One-on-one with native teachers, and lots of talking.<br>At our Meguro studio or online, mornings or after work.">スピーキング特化型英会話 A-PUSH。<br>ネイティブ講師とマンツーマンで、とにかく話す。<br>目黒の教室とオンラインで、朝や仕事終わりにも。</p>
+      <a class="btn" href="https://lp.apush.jp/" target="_blank" rel="noopener" data-en="Visit A-PUSH">A-PUSH を見る</a>
     </div>
     <ul class="apush__teachers">
-      <li><img src="assets/apush/face-alex.jpg" alt="アレックス先生" width="480" height="480" loading="lazy" decoding="async"><span>Alex</span></li>
-      <li><img src="assets/apush/face-phoebe.jpg" alt="フィビィ先生" width="480" height="480" loading="lazy" decoding="async"><span>Phoebe</span></li>
+      <li><img src="assets/apush/face-alex.jpg" alt="アレックス先生" data-en-alt="Alex, teacher" width="480" height="480" loading="lazy" decoding="async"><span>Alex</span></li>
+      <li><img src="assets/apush/face-phoebe.jpg" alt="フィビィ先生" data-en-alt="Phoebe, teacher" width="480" height="480" loading="lazy" decoding="async"><span>Phoebe</span></li>
     </ul>
   </section>
 
@@ -125,14 +125,14 @@
 
 <footer class="footer">
   <p>© Oto Furari</p>
-  <p>運営：<a href="https://lp.apush.jp/company.html" target="_blank" rel="noopener">A-PUSH株式会社</a></p>
-  <p class="footer__links"><a href="https://lp.apush.jp/company.html" target="_blank" rel="noopener">会社概要</a><a href="https://lp.apush.jp/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+  <p><span data-en="Operated by ">運営：</span><a href="https://lp.apush.jp/company.html" target="_blank" rel="noopener" data-en="A-PUSH Inc.">A-PUSH株式会社</a></p>
+  <p class="footer__links"><a href="https://lp.apush.jp/company.html" target="_blank" rel="noopener" data-en="Company">会社概要</a><a href="https://lp.apush.jp/privacy.html" target="_blank" rel="noopener" data-en="Privacy Policy">プライバシーポリシー</a></p>
 </footer>
 
 <dialog class="sheet" id="reserve-sheet" aria-labelledby="sheet-title">
   <div class="sheet__inner">
     <button class="sheet__close" type="button" aria-label="閉じる">Close</button>
-    <p class="sheet__title" id="sheet-title">予約する</p>
+    <p class="sheet__title" id="sheet-title" data-en="Reserve">予約する</p>
     <ol class="evs" id="sheet-list"></ol>
   </div>
 </dialog>

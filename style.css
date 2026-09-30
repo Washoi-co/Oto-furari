@@ -38,6 +38,8 @@ img { display: block; max-width: 100%; }
 .nav { align-items: center; }
 .nav .nav__reserve { opacity: 1; padding: 9px 14px; border: .5px solid var(--fg); font-family: var(--ja); letter-spacing: .18em; }
 .nav .nav__reserve:hover { background: var(--fg); color: var(--bg); }
+.nav__lang { background: none; border: 0; padding: 0; color: inherit; cursor: pointer; font: inherit; letter-spacing: inherit; opacity: .75; }
+.nav__lang:hover { opacity: 1; }
 
 /* shared */
 section { padding: 16vh 16px; }
@@ -78,6 +80,7 @@ section { padding: 16vh 16px; }
 .enjoy__item img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 32px; }
 .enjoy__item .enjoy__title-en { font: 300 clamp(22px, 5.6vw, 30px)/1.4 var(--en); letter-spacing: .12em; margin-top: 0; }
 .enjoy__item--lead { padding: 4vh 0; }
+.enjoy__en:empty { display: none; }
 .enjoy__en { font: 300 11px/1 var(--en); letter-spacing: .28em; color: var(--mute); }
 .enjoy__item h3 { margin: 14px 0 16px; font-weight: 300; font-size: 19px; letter-spacing: .3em; }
 .enjoy__item p:not(.enjoy__en) { font-size: 13px; line-height: 2.3; letter-spacing: .08em; color: var(--mute); }
@@ -226,3 +229,8 @@ section { padding: 16vh 16px; }
 }
 .coupon__copy:hover { border-color: var(--fg); }
 .coupon__note { margin-bottom: 32px; font-size: 11px; letter-spacing: .06em; color: var(--mute); }
+
+/* 英語表示：日本語用の広い字間だと折り返しが崩れるので詰める */
+html[lang="en"] :is(.concept__body, .enjoy__item p:not(.enjoy__en), .venue__text, .contact__lead, .form label, .form__note, .apush__lead, .apush__title, .apush__body, .work__text, .coupon__note) { letter-spacing: .03em; }
+html[lang="en"] :is(.title, .enjoy__item h3, .sheet__title) { letter-spacing: .08em; }
+html[lang="en"] .concept__sign { letter-spacing: .2em; margin-right: -.2em; }

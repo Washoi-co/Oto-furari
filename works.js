@@ -7,8 +7,8 @@ const COEN = {
   venue: "coen Cafe&Bar 月日",
   venueLink: "https://party-co.jp/coen/en-joy",
   venueLogo: "assets/venues/coen.png",
-  area: "下北沢",
-  address: "〒155-0033 東京都世田谷区代田6-6-1 4F",
+  area: "下北沢", area_en: "Shimokitazawa",
+  address: "〒155-0033 東京都世田谷区代田6-6-1 4F", address_en: "4F, 6-6-1 Daita, Setagaya-ku, Tokyo 155-0033",
 };
 
 /* ── Works：開催するたびに 1 ブロック足す。no の小さい順（Vol.01 が上）に並びます ──
@@ -25,17 +25,20 @@ const COEN = {
   title     : コラボ名など（任意）
   link      : 相手先のURL（任意。title がリンクになります）
   text      : ひとこと（任意。\n で改行）
+  ○○_en     : 英語版の文（title_en / text_en / area_en など。無ければ日本語のまま出ます）
 */
 const WORKS = [
   {
     no: 2, date: "2026.10.24", lineup: [], photo: "assets/works/nouei-logo.jpg",
     title: "NOUEI", link: "https://nouei.base.shop/",
     text: "Oto Furariを通じて、\nNOUEIのレアベジに出会う。",
+    text_en: "Discover NOUEI’s rare vegetables\nthrough Oto Furari.",
   },
   {
-    no: 1, date: "2026.06.13", venue: "", venueLogo: "", area: "浅草", lineup: ["Oto Furari Band"], photo: "assets/works/dobopro-logo.jpg",
-    title: "土木実践学生集団 ドボプロ", link: "https://dobo-pro.studio.site/",
+    no: 1, date: "2026.06.13", venue: "", venueLogo: "", area: "浅草", area_en: "Asakusa", lineup: ["Oto Furari Band"], photo: "assets/works/dobopro-logo.jpg",
+    title: "土木実践学生集団 ドボプロ", title_en: "Dobopro, a civil engineering student group", link: "https://dobo-pro.studio.site/",
     text: "海外渡航前の研修と交流の場を、\n音楽で盛り上げました。",
+    text_en: "We brought live music to their training\nand exchange before going abroad.",
   },
 ];
 
@@ -54,8 +57,8 @@ const MEDIA = {
 const EVENTS = [
   {
     date: "2026.10.24", day: "Sat",
-    title: "音ふらり × NOUEI",
-    sub: "音と野菜で繋がる国際交流会",
+    title: "音ふらり × NOUEI", title_en: "Oto Furari × NOUEI",
+    sub: "音と野菜で繋がる国際交流会", sub_en: "An international meetup through music and vegetables",
     ...COEN,
     image: "assets/events/20261024-nouei.jpg", imageBg: "",
     link: "https://luma.com/fnr14fys",
@@ -63,8 +66,8 @@ const EVENTS = [
   },
   {
     date: "2026.11.14", day: "Sat",
-    title: "音ふらり at coen",
-    sub: "共創フェス",
+    title: "音ふらり at coen", title_en: "Oto Furari at coen",
+    sub: "共創フェス", sub_en: "Kyoso Fes",
     ...COEN,
     time: "10:00-21:00  Music 18:00 / 20:00",
     image: "assets/events/20261114-kyoso-fes.jpg", imageBg: "",
